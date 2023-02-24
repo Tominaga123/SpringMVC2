@@ -12,13 +12,13 @@ import com.example.demo.model.Inquiry;
 @Controller
 public class HomeController {
 	
-	@GetMapping("/form")
-	private String readForm(@ModelAttribute Inquiry inquiry) {
+	@GetMapping("/")
+	private String index(@ModelAttribute Inquiry inquiry) {
 		return "index";
 	}
 	
-	@PostMapping("/form")
-	private String confirm(@Validated Inquiry inquiry, BindingResult result) {
+	@PostMapping("/")
+	private String confirm(@Validated @ModelAttribute Inquiry inquiry, BindingResult result) {
 		//エラーがある場合、index.htmlに戻る
 		if(result.hasErrors()) {
 			return "index";
